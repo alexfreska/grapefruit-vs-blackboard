@@ -5,9 +5,9 @@
         <link rel="stylesheet" type="text/css" href="css/core.css">
         <link rel="stylesheet" type="text/css" href="css/typeography.css">
         <style>
-    
+
             /* Styling needed for a fullscreen canvas and no scrollbars. */
-            body, html { 
+            body, html {
             width: 100%;
             height: 100%;
             margin: 0;
@@ -24,13 +24,13 @@
                 top: 0px;
             }
             #gamecontainer {
-                width: 800px;
+                width: 100%;
                 margin-left: auto;
                 margin-right: auto;
             }
-            #gamecanvas { 
-                width: 800px;
-                height: 600px;
+            #gamecanvas {
+                width: 100%;
+                height: 100%;
             }
             #info {
                 width: 800px;
@@ -47,8 +47,8 @@
         <div id="info">
             <p>Move with arrow keys, fire with the space bar. The invaders get faster and drop
                 more bombs as you complete each level!</p>
-            <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a> | 
-                <a href="http://github.com/dwmkerr/spaceinvaders">spaceinvaders on github</a> | 
+            <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a> |
+                <a href="http://github.com/dwmkerr/spaceinvaders">spaceinvaders on github</a> |
                 <a href="http://www.dwmkerr.com/experiments">more experiments</a> | <a href="http://www.dwmkerr.com">dwmkerr.com</a></p>
         </div>
 
@@ -64,8 +64,8 @@
 
             //  Setup the canvas.
             var canvas = document.getElementById("gameCanvas");
-            canvas.width = 800;
-            canvas.height = 600;
+            canvas.width = getWidth();
+            canvas.height = getHeight();
 
             //  Create the game.
             var game = new Game();
@@ -91,8 +91,34 @@
             });
 
             function toggleMute() {
-                game.mute();
-                document.getElementById("muteLink").innerText = game.sounds.mute ? "unmute" : "mute";
+              game.mute();
+              document.getElementById("muteLink").innerText = game.sounds.mute ? "unmute" : "mute";
+            }
+            function getWidth() {
+              if (self.innerHeight) {
+                return self.innerWidth;
+              }
+
+              if (document.documentElement && document.documentElement.clientHeight) {
+                return document.documentElement.clientWidth;
+              }
+
+              if (document.body) {
+                return document.body.clientWidth;
+              }
+            }
+            function getHeight() {
+              if (self.innerHeight) {
+                return self.innerHeight;
+              }
+
+              if (document.documentElement && document.documentElement.clientHeight) {
+                return document.documentElement.clientHeight;
+              }
+
+              if (document.body) {
+                return document.body.clientHeight;
+              }
             }
         </script>
         <script type="text/javascript">
