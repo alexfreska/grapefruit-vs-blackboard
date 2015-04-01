@@ -76,21 +76,21 @@ function Game() {
 
     //  Set the initial config.
     this.config = {
-        bombRate: 0.15,
-        bombMinVelocity: 250,
-        bombMaxVelocity: 350,
-        invaderInitialVelocity: 95,
+        bombRate: 0.65,
+        bombMinVelocity: 850,
+        bombMaxVelocity: 1850,
+        invaderInitialVelocity: 195,
         invaderAcceleration: 0,
         invaderDropDistance: 4,
-        rocketVelocity: 820,
+        rocketVelocity: 1920,
         rocketMaxFireRate: 2,
         gameWidth: getWidth()*0.5,
         gameHeight: getHeight()*0.5,
         fps: 50,
         debugMode: false,
-        invaderRanks: 5,
+        invaderRanks: 2,
         invaderFiles: 10,
-        shipSpeed: 220,
+        shipSpeed: 420,
         levelDifficultyMultiplier: 0.2,
         pointsPerInvader: 5
     };
